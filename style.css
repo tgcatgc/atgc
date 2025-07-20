@@ -1,35 +1,57 @@
-:root {
-    --body-width: 38rem;   /* Paul‑Graham‑style narrow column          */
-    --link: #990000;       /* muted crimson links (darkens when visited) */
-    --text: #000;
-    --bg:   #fff;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 17px;
-    line-height: 1.55;
+:root{
+    --sidebar-w: 120px;          /* width of tab column            */
+    --body-max: 45rem;           /* optional max width for content */
+    --link: #990000;
+    --bg: #fff; --text:#000;
+    font-family: Georgia,"Times New Roman",serif;
+    font-size:17px; line-height:1.55;
   }
   
-  body { margin: 0; background: var(--bg); color: var(--text); }
+  body{margin:0; display:flex; background:var(--bg); color:var(--text);}
   
-  header       { text-align: center; margin: 3rem 0 2rem; }
-  header h1    { margin: 0; font-size: 1.75rem; font-weight: bold; }
+  /* -------- LEFT SIDEBAR ----------------------------------------- */
+  aside{
+    width:var(--sidebar-w);
+    background:#3c3c57;           /* PG’s bluish‑grey */
+    padding-top:1.2rem;
+    box-sizing:border-box;
+    min-height:100vh;
+  }
+  nav{display:flex;flex-direction:column;gap:.4rem;align-items:stretch;padding:0 .4rem;}
+  nav a{
+    display:block;
+    padding:.35rem .2rem;
+    background:#51516f;
+    color:#fff;
+    text-decoration:none;
+    text-align:center;
+    font-size:.9rem;
+    border:1px solid #2e2e47;
+    border-radius:2px;
+  }
+  nav a:hover{background:#6c6c8c;}
+  nav a.active{background:#d0d0e0;color:#000;}
   
-  nav          { margin-top: 0.5rem; font-size: 0.9rem; }
-  nav a        { color: var(--link); text-decoration: none; }
-  nav a:hover  { text-decoration: underline; }
+  /* -------- MAIN CONTENT ----------------------------------------- */
+  main{
+    flex:1;
+    max-width:var(--body-max);
+    padding:2rem 2rem 4rem 2rem;      /* left pad = gap from sidebar */
+  }
+  h2{font-size:1.25rem;margin:.2rem 0 .8rem;font-weight:bold;color:var(--link);}
+  ul{list-style:square inside;margin:0;padding:0;}
+  li{margin:.4rem 0;}
   
-  main         { max-width: var(--body-width); margin: 0 auto 4rem; padding: 0 1rem; }
-  section      { margin-bottom: 3rem; }
-  h2           { font-size: 1.25rem; margin: 0 0 .5rem; font-weight: bold; }
+  a{color:var(--link);}
+  a:visited{color:#551a8b;}
   
-  ul           { list-style: none; padding: 0; margin: 0; }
-  li           { margin-bottom: 1.2rem; }
+  footer{margin-top:4rem;font-size:.8rem;color:#444;}
   
-  a            { color: var(--link); }
-  a:visited    { color: #551a8b; }
-  
-  footer       { text-align: center; margin: 4rem 0 2rem; font-size: .8rem; color: #444; }
-  
-  @media (prefers-color-scheme: dark) {
-    :root { --bg:#111; --text:#eaeaea; --link:#ff6b6b; }
+  /* -------- DARK MODE -------------------------------------------- */
+  @media(prefers-color-scheme:dark){
+    :root{--bg:#111;--text:#eaeaea;--link:#ff6b6b;}
+    aside{background:#1f1f2a;}
+    nav a{background:#39395d;border-color:#222247;}
+    nav a.active{background:#57578a;color:#fff;}
   }
   
