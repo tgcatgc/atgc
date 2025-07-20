@@ -1,119 +1,117 @@
 /* ===================================================================
-   Guanchun Tong – “Paul Graham” sidebar layout
+   KU Leuven colour scheme – Sidebar layout
    =================================================================== */
 
 /* ---------- global palette & typography --------------------------- */
 :root{
-    /* layout */
-    --sidebar-w: 120px;      /* width of the left nav column            */
-    --content-max: 45rem;    /* optional max width of main column       */
+    /* layout sizes */
+    --sidebar-w: 128px;
+    --content-max: 46rem;
   
-    /* colours (light) */
-    --bg:   #ffffff;
-    --text: #000000;
-    --link: #990000;         /* PG crimson */
-    --visited:#551a8b;
+    /* KU Leuven brand colours (light mode) */
+    --bg:          #ffffff;
+    --text:        #000000;
+    --link:        #00407A;  /* dark KU blue */
+    --visited:     #551a8b;  /* standard visited purple */
   
-    /* sidebar colours */
-    --side-bg:   #3c3c57;    /* bluish slate */
-    --side-btn:  #51516f;
-    --side-btn-h:#6c6c8c;
-    --side-btn-on:#d0d0e0;
-    --side-border:#2e2e47;
+    --side-bg:     #00407A;  /* primary dark                        */
+    --side-btn:    #1D8DB0;  /* mid                                 */
+    --side-btn-h:  #1FABD5;  /* hover / lighter                     */
+    --side-btn-on: #52BDEC;  /* active                              */
+    --side-border: #002f55;  /* subtle outline                      */
   
-    /* colours (dark mode) */
-    --bg-dk:#111111;
-    --text-dk:#eaeaea;
-    --link-dk:#ff6b6b;
-    --side-bg-dk:#1f1f2a;
-    --side-btn-dk:#39395d;
-    --side-border-dk:#222247;
-    --side-btn-on-dk:#57578a;
+    /* dark‑mode overrides */
+    --bg-dk:          #0b1a28;
+    --text-dk:        #e9f3ff;
+    --link-dk:        #52BDEC;
+    --side-bg-dk:     #002c4d;
+    --side-btn-dk:    #006398;
+    --side-btn-on-dk: #1D8DB0;
+    --side-border-dk: #001c33;
   
-    /* type */
+    /* typography */
     font-family: Georgia,"Times New Roman",serif;
     font-size: 17px;
     line-height: 1.55;
   }
   
-  /* ---------- base layout ------------------------------------------- */
+  /* ---------- base flex layout ------------------------------------- */
   body{
     margin:0;
-    display:flex;                    /* <aside> + <main> side‑by‑side   */
+    display:flex;                          /* sidebar + main */
     background:var(--bg);
     color:var(--text);
   }
   
-  /* ---------- sidebar ------------------------------------------------ */
+  /* ---------- LEFT SIDEBAR ----------------------------------------- */
   aside{
     width:var(--sidebar-w);
     background:var(--side-bg);
     padding-top:1.2rem;
     box-sizing:border-box;
-    min-height:100vh;                /* full height column              */
+    min-height:100vh;
   }
   
   nav{
     display:flex;
     flex-direction:column;
-    gap:.4rem;
-    padding:0 .4rem;
+    gap:.45rem;
+    padding:0 .5rem;
   }
   
   nav a{
     display:block;
-    padding:.35rem .2rem;
+    padding:.4rem .3rem;
     background:var(--side-btn);
-    color:#ffffff;
+    color:#fff;
     text-decoration:none;
-    text-align:center;
     font-size:.9rem;
+    text-align:center;
     border:1px solid var(--side-border);
     border-radius:2px;
+    transition:background .15s;
   }
   
   nav a:hover{
     background:var(--side-btn-h);
   }
   
-  nav a.active{                     /* highlighted for current page     */
+  nav a.active{
     background:var(--side-btn-on);
-    color:#000000;
+    color:#000;
   }
   
-  /* ---------- main content ------------------------------------------ */
+  /* ---------- MAIN CONTENT ----------------------------------------- */
   main{
-    flex:1;                         /* take remaining width             */
-    max-width:var(--content-max);   /* stop text getting too wide       */
-    padding:2rem 2rem 4rem;         /* top‑right‑bottom‑left            */
+    flex:1;
+    max-width:var(--content-max);
+    padding:2rem 2rem 4rem;
   }
   
   h2{
-    font-size:1.25rem;
-    margin:.2rem 0 .8rem;
+    font-size:1.3rem;
+    margin:.2rem 0 1rem;
     font-weight:bold;
-    color:var(--link);
+    color:var(--side-btn-on);              /* accent light blue */
   }
   
-  /* lists for essay links or papers */
   ul{
     list-style:square inside;
     margin:0;
     padding:0;
   }
-  li{ margin:.4rem 0; }
+  li{ margin:.45rem 0; }
   
   a{ color:var(--link); }
   a:visited{ color:var(--visited); }
   
-  /* footer */
   footer{
     margin-top:4rem;
     font-size:.8rem;
     color:#444;
   }
   
-  /* ---------- dark‑mode override ------------------------------------ */
+  /* ---------- DARK MODE -------------------------------------------- */
   @media(prefers-color-scheme:dark){
     :root{
       --bg:var(--bg-dk);
@@ -121,9 +119,9 @@
       --link:var(--link-dk);
       --side-bg:var(--side-bg-dk);
       --side-btn:var(--side-btn-dk);
-      --side-border:var(--side-border-dk);
       --side-btn-on:var(--side-btn-on-dk);
-      --visited:#a58bff;
+      --side-border:var(--side-border-dk);
+      --visited:#9e8cff;
     }
   }
   
