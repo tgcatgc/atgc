@@ -1,35 +1,32 @@
-:root {
-    --body-width: 38rem;   /* Paul‑Graham‑style narrow column          */
-    --link: #990000;       /* muted crimson links (darkens when visited) */
-    --text: #000;
-    --bg:   #fff;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 17px;
-    line-height: 1.55;
+:root{
+    --body-width:38rem;
+    --link:#990000;
+    --text:#000;--bg:#fff;
+    --tab-h:#444;
+    --tab-active:#990000;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:17px;line-height:1.55;
   }
   
-  body { margin: 0; background: var(--bg); color: var(--text); }
+  /* page basics */
+  body{margin:0;background:var(--bg);color:var(--text);}
+  main{max-width:var(--body-width);margin:0 auto 4rem;padding:0 1rem;}
+  section{margin-bottom:3rem;}
+  h2{font-size:1.25rem;margin:0 0 .5rem;font-weight:bold;}
+  ul{list-style:none;padding:0;margin:0;}li{margin-bottom:1.2rem;}
+  a{color:var(--link);}a:visited{color:#551a8b;}
   
-  header       { text-align: center; margin: 3rem 0 2rem; }
-  header h1    { margin: 0; font-size: 1.75rem; font-weight: bold; }
+  /* TAB BAR ----------------------------------------------------------*/
+  header{border-bottom:1px solid #ccc;}
+  nav{display:flex;justify-content:center;gap:1.5rem;margin:1.8rem 0;}
+  nav a{padding:.4rem .25rem;text-decoration:none;color:var(--tab-h);border-bottom:2px solid transparent;transition:border .2s;}
+  nav a:hover{border-bottom:2px solid var(--tab-h);}
+  nav a.active{color:var(--tab-active);border-bottom:2px solid var(--tab-active);font-weight:bold;}
   
-  nav          { margin-top: 0.5rem; font-size: 0.9rem; }
-  nav a        { color: var(--link); text-decoration: none; }
-  nav a:hover  { text-decoration: underline; }
+  footer{text-align:center;margin:4rem 0 2rem;font-size:.8rem;color:#444;}
   
-  main         { max-width: var(--body-width); margin: 0 auto 4rem; padding: 0 1rem; }
-  section      { margin-bottom: 3rem; }
-  h2           { font-size: 1.25rem; margin: 0 0 .5rem; font-weight: bold; }
-  
-  ul           { list-style: none; padding: 0; margin: 0; }
-  li           { margin-bottom: 1.2rem; }
-  
-  a            { color: var(--link); }
-  a:visited    { color: #551a8b; }
-  
-  footer       { text-align: center; margin: 4rem 0 2rem; font-size: .8rem; color: #444; }
-  
-  @media (prefers-color-scheme: dark) {
-    :root { --bg:#111; --text:#eaeaea; --link:#ff6b6b; }
+  /* optional dark mode */
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#111;--text:#eaeaea;--link:#ff6b6b;--tab-h:#aaa;--tab-active:#ff6b6b;}
   }
   
