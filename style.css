@@ -1,57 +1,129 @@
+/* ===================================================================
+   Guanchun Tong – “Paul Graham” sidebar layout
+   =================================================================== */
+
+/* ---------- global palette & typography --------------------------- */
 :root{
-    --sidebar-w: 120px;          /* width of tab column            */
-    --body-max: 45rem;           /* optional max width for content */
-    --link: #990000;
-    --bg: #fff; --text:#000;
+    /* layout */
+    --sidebar-w: 120px;      /* width of the left nav column            */
+    --content-max: 45rem;    /* optional max width of main column       */
+  
+    /* colours (light) */
+    --bg:   #ffffff;
+    --text: #000000;
+    --link: #990000;         /* PG crimson */
+    --visited:#551a8b;
+  
+    /* sidebar colours */
+    --side-bg:   #3c3c57;    /* bluish slate */
+    --side-btn:  #51516f;
+    --side-btn-h:#6c6c8c;
+    --side-btn-on:#d0d0e0;
+    --side-border:#2e2e47;
+  
+    /* colours (dark mode) */
+    --bg-dk:#111111;
+    --text-dk:#eaeaea;
+    --link-dk:#ff6b6b;
+    --side-bg-dk:#1f1f2a;
+    --side-btn-dk:#39395d;
+    --side-border-dk:#222247;
+    --side-btn-on-dk:#57578a;
+  
+    /* type */
     font-family: Georgia,"Times New Roman",serif;
-    font-size:17px; line-height:1.55;
+    font-size: 17px;
+    line-height: 1.55;
   }
   
-  body{margin:0; display:flex; background:var(--bg); color:var(--text);}
+  /* ---------- base layout ------------------------------------------- */
+  body{
+    margin:0;
+    display:flex;                    /* <aside> + <main> side‑by‑side   */
+    background:var(--bg);
+    color:var(--text);
+  }
   
-  /* -------- LEFT SIDEBAR ----------------------------------------- */
+  /* ---------- sidebar ------------------------------------------------ */
   aside{
     width:var(--sidebar-w);
-    background:#3c3c57;           /* PG’s bluish‑grey */
+    background:var(--side-bg);
     padding-top:1.2rem;
     box-sizing:border-box;
-    min-height:100vh;
+    min-height:100vh;                /* full height column              */
   }
-  nav{display:flex;flex-direction:column;gap:.4rem;align-items:stretch;padding:0 .4rem;}
+  
+  nav{
+    display:flex;
+    flex-direction:column;
+    gap:.4rem;
+    padding:0 .4rem;
+  }
+  
   nav a{
     display:block;
     padding:.35rem .2rem;
-    background:#51516f;
-    color:#fff;
+    background:var(--side-btn);
+    color:#ffffff;
     text-decoration:none;
     text-align:center;
     font-size:.9rem;
-    border:1px solid #2e2e47;
+    border:1px solid var(--side-border);
     border-radius:2px;
   }
-  nav a:hover{background:#6c6c8c;}
-  nav a.active{background:#d0d0e0;color:#000;}
   
-  /* -------- MAIN CONTENT ----------------------------------------- */
-  main{
-    flex:1;
-    max-width:var(--body-max);
-    padding:2rem 2rem 4rem 2rem;      /* left pad = gap from sidebar */
+  nav a:hover{
+    background:var(--side-btn-h);
   }
-  h2{font-size:1.25rem;margin:.2rem 0 .8rem;font-weight:bold;color:var(--link);}
-  ul{list-style:square inside;margin:0;padding:0;}
-  li{margin:.4rem 0;}
   
-  a{color:var(--link);}
-  a:visited{color:#551a8b;}
+  nav a.active{                     /* highlighted for current page     */
+    background:var(--side-btn-on);
+    color:#000000;
+  }
   
-  footer{margin-top:4rem;font-size:.8rem;color:#444;}
+  /* ---------- main content ------------------------------------------ */
+  main{
+    flex:1;                         /* take remaining width             */
+    max-width:var(--content-max);   /* stop text getting too wide       */
+    padding:2rem 2rem 4rem;         /* top‑right‑bottom‑left            */
+  }
   
-  /* -------- DARK MODE -------------------------------------------- */
+  h2{
+    font-size:1.25rem;
+    margin:.2rem 0 .8rem;
+    font-weight:bold;
+    color:var(--link);
+  }
+  
+  /* lists for essay links or papers */
+  ul{
+    list-style:square inside;
+    margin:0;
+    padding:0;
+  }
+  li{ margin:.4rem 0; }
+  
+  a{ color:var(--link); }
+  a:visited{ color:var(--visited); }
+  
+  /* footer */
+  footer{
+    margin-top:4rem;
+    font-size:.8rem;
+    color:#444;
+  }
+  
+  /* ---------- dark‑mode override ------------------------------------ */
   @media(prefers-color-scheme:dark){
-    :root{--bg:#111;--text:#eaeaea;--link:#ff6b6b;}
-    aside{background:#1f1f2a;}
-    nav a{background:#39395d;border-color:#222247;}
-    nav a.active{background:#57578a;color:#fff;}
+    :root{
+      --bg:var(--bg-dk);
+      --text:var(--text-dk);
+      --link:var(--link-dk);
+      --side-bg:var(--side-bg-dk);
+      --side-btn:var(--side-btn-dk);
+      --side-border:var(--side-border-dk);
+      --side-btn-on:var(--side-btn-on-dk);
+      --visited:#a58bff;
+    }
   }
   
