@@ -1,127 +1,88 @@
-/* ===================================================================
-   KU Leuven colour scheme – Sidebar layout
-   =================================================================== */
+/* Import Fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Montserrat:wght@500;700&display=swap');
 
-/* ---------- global palette & typography --------------------------- */
-:root{
-    /* layout sizes */
-    --sidebar-w: 128px;
-    --content-max: 46rem;
-  
-    /* KU Leuven brand colours (light mode) */
-    --bg:          #ffffff;
-    --text:        #000000;
-    --link:        #00407A;  /* dark KU blue */
-    --visited:     #551a8b;  /* standard visited purple */
-  
-    --side-bg:     #00407A;  /* primary dark                        */
-    --side-btn:    #1D8DB0;  /* mid                                 */
-    --side-btn-h:  #1FABD5;  /* hover / lighter                     */
-    --side-btn-on: #52BDEC;  /* active                              */
-    --side-border: #002f55;  /* subtle outline                      */
-  
-    /* dark‑mode overrides */
-    --bg-dk:          #0b1a28;
-    --text-dk:        #e9f3ff;
-    --link-dk:        #52BDEC;
-    --side-bg-dk:     #002c4d;
-    --side-btn-dk:    #006398;
-    --side-btn-on-dk: #1D8DB0;
-    --side-border-dk: #001c33;
-  
-    /* typography */
-    font-family: Georgia,"Times New Roman",serif;
-    font-size: 17px;
-    line-height: 1.55;
-  }
-  
-  /* ---------- base flex layout ------------------------------------- */
-  body{
-    margin:0;
-    display:flex;                          /* sidebar + main */
-    background:var(--bg);
-    color:var(--text);
-  }
-  
-  /* ---------- LEFT SIDEBAR ----------------------------------------- */
-  aside{
-    width:var(--sidebar-w);
-    background:var(--side-bg);
-    padding-top:1.2rem;
-    box-sizing:border-box;
-    min-height:100vh;
-  }
-  
-  nav{
-    display:flex;
-    flex-direction:column;
-    gap:.45rem;
-    padding:0 .5rem;
-  }
-  
-  nav a{
-    display:block;
-    padding:.4rem .3rem;
-    background:var(--side-btn);
-    color:#fff;
-    text-decoration:none;
-    font-size:.9rem;
-    text-align:center;
-    border:1px solid var(--side-border);
-    border-radius:2px;
-    transition:background .15s;
-  }
-  
-  nav a:hover{
-    background:var(--side-btn-h);
-  }
-  
-  nav a.active{
-    background:var(--side-btn-on);
-    color:#000;
-  }
-  
-  /* ---------- MAIN CONTENT ----------------------------------------- */
-  main{
-    flex:1;
-    max-width:var(--content-max);
-    padding:2rem 2rem 4rem;
-  }
-  
-  h2{
-    font-size:1.3rem;
-    margin:.2rem 0 1rem;
-    font-weight:bold;
-    color:var(--side-btn-on);              /* accent light blue */
-  }
-  
-  ul{
-    list-style:square inside;
-    margin:0;
-    padding:0;
-  }
-  li{ margin:.45rem 0; }
-  
-  a{ color:var(--link); }
-  a:visited{ color:var(--visited); }
-  
-  footer{
-    margin-top:4rem;
-    font-size:.8rem;
-    color:#444;
-  }
-  
-  /* ---------- DARK MODE -------------------------------------------- */
-  @media(prefers-color-scheme:dark){
-    :root{
-      --bg:var(--bg-dk);
-      --text:var(--text-dk);
-      --link:var(--link-dk);
-      --side-bg:var(--side-bg-dk);
-      --side-btn:var(--side-btn-dk);
-      --side-btn-on:var(--side-btn-on-dk);
-      --side-border:var(--side-border-dk);
-      --visited:#9e8cff;
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0a2e48; /* KU Leuven Dark Blue */
+    color: #eaeaea;
+    font-family: 'Lora', serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Sidebar Navigation */
+nav {
+    width: 220px;
+    background-color: #005a87;
+    padding-top: 40px;
+    height: 100vh;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+}
+
+nav a {
+    display: block;
+    padding: 15px 25px;
+    color: #a6d8f0;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    background-color: #5db7de;
+    color: #ffffff;
+}
+
+/* Main Content */
+main {
+    padding: 40px;
+    flex-grow: 1;
+    max-width: 700px;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #5db7de; /* KU Leuven Light Blue */
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+/* Footer Styling */
+footer {
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9em;
+    color: rgba(255,255,255,0.5);
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
     }
-  }
-  
+
+    nav {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav a {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+    }
+
+    main {
+        padding: 20px;
+        max-width: 100%;
+    }
+}
