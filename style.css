@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
 
 :root {
-  --bg: #fbf7f1; /* High-end notebook paper color */
+  --bg: #fbf7f1;
   --text: #000000;
-  --accent: #990000; /* Muted crimson */
+  --accent: #990000;
   --max-width: 38rem;
   font-family: 'Georgia', 'Times New Roman', serif;
   line-height: 1.55;
@@ -16,9 +16,8 @@ body {
   color: var(--text);
   margin: 0;
   display: flex;
-  flex-direction: row;
-  min-height: 100vh;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 /* Sidebar Navigation */
@@ -69,15 +68,53 @@ p {
   margin-bottom: 1rem;
 }
 
+/* Papers section improvements */
+#papers {
+  margin-top: 2rem;
+}
+
+#papers ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+#papers li {
+  margin-bottom: 2rem;
+}
+
+#papers li:last-child {
+  margin-bottom: 0;
+}
+
+#papers li strong {
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+#papers li em {
+  color: #444;
+}
+
+#papers a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+#papers a:hover {
+  text-decoration: underline;
+}
+
 /* Footer Styling */
 footer {
-    text-align: center;
-    font-size: 0.7rem;
-    padding: 1rem;
-    color: #aaa;
-    margin-top: auto;
-    opacity: 0.6;
-  }
+  text-align: center;
+  font-size: 0.7rem;
+  padding: 1rem;
+  color: #aaa;
+  margin-top: auto;
+  opacity: 0.6;
+}
 
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
