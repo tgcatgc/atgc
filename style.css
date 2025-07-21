@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
 
 :root {
-  --bg: #fdfdfd;
-  --text: #111111;
-  --accent: #555555;
+  --bg: #ffffff;
+  --text: #000000;
+  --accent: #cc0000;
   --max-width: 45rem;
   font-family: 'Georgia', 'Times New Roman', serif;
   line-height: 1.6;
@@ -22,7 +22,7 @@ body {
 nav {
   width: 200px;
   background-color: var(--bg);
-  border-right: 1px solid var(--accent);
+  border-right: 1px solid #e0e0e0;
   padding: 2rem 1rem;
   height: 100vh;
   box-shadow: 2px 0 10px rgba(0,0,0,0.05);
@@ -51,7 +51,8 @@ main {
 
 h1, h2, h3 {
   margin-top: 0;
-  border-bottom: 1px solid var(--accent);
+  color: var(--accent);
+  border-bottom: 1px solid #e0e0e0;
   padding-bottom: .25rem;
   margin-bottom: 1rem;
 }
@@ -65,8 +66,8 @@ footer {
   text-align: center;
   font-size: 0.8rem;
   padding: 2rem 1rem;
-  border-top: 1px solid var(--accent);
-  color: var(--accent);
+  border-top: 1px solid #e0e0e0;
+  color: #888888;
 }
 
 /* Responsive Design for Mobile */
@@ -81,7 +82,7 @@ footer {
     display: flex;
     justify-content: center;
     border-right: none;
-    border-bottom: 1px solid var(--accent);
+    border-bottom: 1px solid #e0e0e0;
   }
 
   nav a {
@@ -95,8 +96,8 @@ footer {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #111;
-    --text: #eaeaea;
-    --accent: #444;
+    --bg: #111111;
+    --text: #f0f0f0;
+    --accent: #cc3333;
   }
 }
