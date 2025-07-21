@@ -71,12 +71,13 @@ p {
 
 /* Footer Styling */
 footer {
-  text-align: center;
-  font-size: 0.8rem;
-  padding: 2rem 1rem;
-  color: #444;
-  margin-top: auto;
-}
+    text-align: center;
+    font-size: 0.7rem;
+    padding: 1rem;
+    color: #aaa;
+    margin-top: auto;
+    opacity: 0.6;
+  }
 
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
